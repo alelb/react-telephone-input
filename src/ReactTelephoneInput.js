@@ -574,9 +574,7 @@ export class ReactTelephoneInput extends Component {
         <div
           className={flagViewClasses}
           onKeyDown={this.handleKeydown}
-          data-test-id="src_reacttelephoneinput_test_id_6"
-          // this is crucial if we want keyboard up/down events to be heard through this div and not document.body
-          tabIndex={0}
+          data-test-id="src_reacttelephoneinput_test_id_6"          
         >
           <button
             onClick={this.handleFlagDropdownClick}
@@ -585,6 +583,7 @@ export class ReactTelephoneInput extends Component {
             data-test-id="src_reacttelephoneinput_test_id_7"
             onKeyDown={this.handleFlagKeyDown}
             type="button"
+            tabIndex={-1}
           >
             <div
               className={inputFlagClasses}
@@ -615,6 +614,7 @@ export class ReactTelephoneInput extends Component {
           disabled={this.props.disabled}
           {...otherProps}
           data-test-id="src_reacttelephoneinput_test_id_5"
+          tabIndex={0}
         />
       </div>
     )

@@ -146,8 +146,6 @@ export var ReactTelephoneInput = (_temp = _class = function (_Component) {
           className: flagViewClasses,
           onKeyDown: this.handleKeydown,
           'data-test-id': 'src_reacttelephoneinput_test_id_6'
-          // this is crucial if we want keyboard up/down events to be heard through this div and not document.body
-          , tabIndex: 0
         },
         React.createElement(
           'button',
@@ -157,7 +155,8 @@ export var ReactTelephoneInput = (_temp = _class = function (_Component) {
             title: this.state.selectedCountry.name + ': + ' + this.state.selectedCountry.dialCode,
             'data-test-id': 'src_reacttelephoneinput_test_id_7',
             onKeyDown: this.handleFlagKeyDown,
-            type: 'button'
+            type: 'button',
+            tabIndex: -1
           },
           React.createElement(
             'div',
@@ -189,7 +188,8 @@ export var ReactTelephoneInput = (_temp = _class = function (_Component) {
         placeholder: this.props.placeholder,
         disabled: this.props.disabled
       }, otherProps, {
-        'data-test-id': 'src_reacttelephoneinput_test_id_5'
+        'data-test-id': 'src_reacttelephoneinput_test_id_5',
+        tabIndex: 0
       }))
     );
   };
