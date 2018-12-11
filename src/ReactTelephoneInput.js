@@ -62,6 +62,7 @@ export class ReactTelephoneInput extends Component {
     placeholder: '+1 (702) 123-4567',
     autoComplete: 'tel',
     required: false,
+    buttonProps: {},
     inputProps: {},
     listItemClassName: 'country',
     listStyle: {
@@ -561,6 +562,7 @@ export class ReactTelephoneInput extends Component {
     })
 
     const inputFlagClasses = `flag ${this.state.selectedCountry.iso2}`
+    const buttonProps = this.props.buttonProps
     const otherProps = this.props.inputProps
     if (this.props.inputId) {
       otherProps.id = this.props.inputId
@@ -583,7 +585,7 @@ export class ReactTelephoneInput extends Component {
             data-test-id="src_reacttelephoneinput_test_id_7"
             onKeyDown={this.handleFlagKeyDown}
             type="button"
-            tabIndex={-1}
+            {...buttonProps}
           >
             <div
               className={inputFlagClasses}
@@ -613,8 +615,7 @@ export class ReactTelephoneInput extends Component {
           placeholder={this.props.placeholder}
           disabled={this.props.disabled}
           {...otherProps}
-          data-test-id="src_reacttelephoneinput_test_id_5"
-          tabIndex={0}
+          data-test-id="src_reacttelephoneinput_test_id_5"          
         />
       </div>
     )
@@ -643,6 +644,7 @@ ReactTelephoneInput.propTypes = {
   disabled: PropTypes.bool,
   pattern: PropTypes.string,
   required: PropTypes.bool,
+  buttonProps: PropTypes.object,
   inputProps: PropTypes.object,
   listStyle: PropTypes.object,
   listItemClassName: PropTypes.string
